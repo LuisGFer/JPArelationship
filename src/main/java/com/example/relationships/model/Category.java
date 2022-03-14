@@ -1,9 +1,10 @@
 package com.example.relationships.model;
 
 import lombok.Data;
-import org.springframework.lang.Nullable;
+
 
 import javax.persistence.*;
+
 
 @Entity
 @Data
@@ -13,7 +14,7 @@ public class Category {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = true)
+    @Column
     private byte[] image;
 
     public Category() {

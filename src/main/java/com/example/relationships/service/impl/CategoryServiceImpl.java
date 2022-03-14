@@ -30,4 +30,12 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDTO getCategory(Long id) {
         return null;
     }
+
+    @Override
+    public CategoryDTO saveCategory(CategoryDTO category) {
+        Category categoryToSave = this.mapper.categoryDTOToCategory(category);
+        Category savedCategory = this.repository.save(categoryToSave);
+
+        return this.mapper.categoryToCategoryDTO(savedCategory);
+    }
 }

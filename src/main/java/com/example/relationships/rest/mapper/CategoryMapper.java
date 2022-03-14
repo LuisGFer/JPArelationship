@@ -11,5 +11,6 @@ import java.util.List;
 )
 public interface CategoryMapper {
     CategoryDTO categoryToCategoryDTO(Category category);
+    Category categoryDTOToCategory(CategoryDTO categoryDTO);
     List<CategoryDTO> categoriesToCategoriesDTO(List<Category> categories);
 }

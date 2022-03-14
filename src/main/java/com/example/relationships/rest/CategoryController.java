@@ -3,10 +3,7 @@ package com.example.relationships.rest;
 import com.example.relationships.rest.dto.CategoryDTO;
 import com.example.relationships.service.CategoryService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,14 @@ public class CategoryController {
     public ResponseEntity<List<CategoryDTO>> getCategories() {
         List<CategoryDTO> categories = this.categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
+    }
+
+    @PostMapping()
+    public ResponseEntity<CategoryDTO> saveCategory(@RequestBody CategoryDTO category) {
+        CategoryDTO resultCategory = this.categoryService.saveCategory(category);
+
+        return ResponseEntity.ok(resultCategory);
+
     }
 
     @GetMapping("/:id")
